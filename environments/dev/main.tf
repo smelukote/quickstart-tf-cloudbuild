@@ -25,5 +25,5 @@ provider "google" {
 module "http_server" {
   source  = "../../modules/http_server"
   project = "${var.project}"
-  subnet  = "${module.vpc.subnet}"
+  subnet  = "projects/dataflow-bq-321500/regions/us-central1/subnetworks/default"
 }
