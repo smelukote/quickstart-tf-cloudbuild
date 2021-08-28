@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-terraform {
-  required_version = "~> 1.0.0"
-}
+// terraform {
+//   required_version = ">=0.13.6"
+// }
+// terraform {
+//   required_version = "~> 1.0.0"
+// }

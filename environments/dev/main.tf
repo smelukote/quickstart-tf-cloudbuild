@@ -13,17 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 locals {
   env = "dev"
+  // zone = "${var.zone}"
 }
 
 provider "google" {
-  project = "${var.project}"
+  project = "${var.project_id}"
 }
 
-module "http_server" {
-  source  = "../../modules/http_server"
-  project = "${var.project}"
-  subnet  = "projects/dataflow-bq-321500/regions/us-central1/subnetworks/default"
+module "web_server" {
+  source  = "../../modules/web_server"
+  project = "${var.project_id}"
+  subnet  = "${var.subnet}"
+  zone    = "${var.zone}"
 }

@@ -12,5 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+variable "project_id" {
+    description = "project_id"
+}
 
-variable "project" {}
+variable "subnet" {
+    description = "subnet"
+    default = "projects/dataflow-bq-321500/regions/us-central1/subnetworks/default"
+}
+
+variable "zone" {
+    description = "zone"
+    
+}

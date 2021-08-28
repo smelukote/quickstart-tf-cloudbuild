@@ -13,16 +13,13 @@
 # limitations under the License.
 
 
-network_interface {
-    # A default network is created for all GCP projects
-    network = "default"
-    access_config {
-    }
-  }
+locals {
+  network = "${element(split("-", var.subnet), 0)}"
+}
 
-resource "google_compute_instance" "http_server" {
+resource "google_compute_instance" "web_server" {
   project      = "${var.project}"
-  zone         = "us-central1-a"
+  zone         = "${var.zone}"
   name         = "apache2-instance"
   machine_type = "f1-micro"
 
@@ -43,5 +40,5 @@ resource "google_compute_instance" "http_server" {
   }
 
   # Apply the firewall rule to allow external IPs to access this instance
-  tags = ["http-server"]
+  tags = ["web-server"]
 }
