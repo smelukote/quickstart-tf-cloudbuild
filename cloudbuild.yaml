@@ -16,6 +16,7 @@
 steps:
 # This step runs the unit tests on the app
 - name: 'python:3.7-slim'
+  dir: 'environments/dev/hello-cloudbuild-app'
   id: Test
   entrypoint: /bin/sh
   args:
