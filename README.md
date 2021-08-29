@@ -25,3 +25,23 @@ terraform plan
 terraform apply
 terraform destroy
 ```
+
+CICD using terraform-cloudbuild-GKE
+gcloud config set project [PROJECT_ID]
+gcloud services enable container.googleapis.com \
+    cloudbuild.googleapis.com \
+    sourcerepo.googleapis.com \
+    containeranalysis.googleapis.com
+gcloud container clusters create hello-cloudbuild \
+    --num-nodes 1 --zone us-central1-b
+git config --global user.email "[YOUR_EMAIL_ADDRESS]"
+git config --global user.name "[YOUR_NAME]"
+git config --global credential.helper gcloud.sh -- only if you are using cloud repos.
+files needed to test - app.py, Dockerfile for app, cloudbuild.yaml for cloudbuild.
+need GKE cluster for deployment - CD
+CD - 
+IAM permission needed for cloudbuild SA
+PROJECT_NUMBER="$(gcloud projects describe ${PROJECT_ID} --format='get(projectNumber)')"
+gcloud projects add-iam-policy-binding ${PROJECT_NUMBER} \
+    --member=serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com \
+    --role=roles/container.developer
