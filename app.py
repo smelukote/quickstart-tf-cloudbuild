@@ -12,15 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# [START dockerfile]
-FROM python:3.7-slim
-RUN pip install flask
-WORKDIR /app
-COPY app.py /app/app.py
-ENTRYPOINT ["python"]
-CMD ["/app/app.py"]
-<<<<<<< HEAD
-# [END dockerfile]
-=======
-# [END dockerfile]
->>>>>>> 56348c36dd823c1f4d38876842bec592bcdf7fe8
+# [START hello-app]
+from flask import Flask
+app = Flask('hello-cloudbuild')
+
+@app.route('/')
+def hello():
+  return "Hello World!\n"
+
+if __name__ == '__main__':
+  app.run(host = '0.0.0.0', port = 8080)
+# [END hello-app]
