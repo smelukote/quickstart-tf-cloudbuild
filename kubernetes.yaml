@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: hello-cloudbuild
-        image: gcr.io/dataflow-bq-321500/hello-cloudbuild:COMMIT_SHA
+        image: gcr.io/dataflow-bq-321500/hello-cloudbuild
         ports:
         - containerPort: 8080
 ---
