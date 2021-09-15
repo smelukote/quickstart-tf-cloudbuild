@@ -19,8 +19,4 @@ WORKDIR /app
 COPY app.py /app/app.py
 ENTRYPOINT ["python"]
 CMD ["/app/app.py"]
-<<<<<<< HEAD
 # [END dockerfile]
-=======
-# [END dockerfile]
->>>>>>> 56348c36dd823c1f4d38876842bec592bcdf7fe8
